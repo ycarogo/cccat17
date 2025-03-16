@@ -1,0 +1,29 @@
+{
+    "name": "gon/slim_api",
+    "autoload": {
+        "psr-4": {
+            "SlimApi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ycaro Gonçalves",
+            "email": "ycarogoncalves@gmail.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "4.*",
+        "slim/psr7": "^1.6",
+        "vlucas/phpdotenv": "^5.5",
+        "firebase/php-jwt": "^6.8",
+        "twig/twig": "^3.0",
+        "robmorgan/phinx": "^0.11.7",
+        "zircote/swagger-php": "^4.7",
+        "guzzlehttp/guzzle": "^7.8"
+    },
+    "optimize-autoloader": true,
+    "require-dev": {
+        "phpunit/phpunit": "^11",
+        "mockery/mockery": "^1.6"
+    }
+}
