@@ -13,8 +13,6 @@ RUN deluser www-data && adduser -u 1000 -D -H -s /sbin/nologin www-data
 
 WORKDIR /var/www/html/slim_api
 
-RUN chown -R www-data:www-data /var/www/html/slim_api
-
 USER www-data
 
 EXPOSE 9000

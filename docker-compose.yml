@@ -8,7 +8,7 @@ services:
     ports:
       - '9000:9000'
     volumes:
-      - ./slim_api:/var/www/slim_api
+      - ./slim_api:/var/www/html/slim_api
 
   slim_nginx:
     build: .docker/nginx
@@ -17,7 +17,22 @@ services:
     ports:
       - '8080:8080'
     volumes:
-      - ./slim_api:/var/www/slim_api
-      - ./.docker/nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
+      - ./slim_api:/var/www/html/slim_api
     depends_on:
       - slim_api
+
+  slim-db:
+    image: postgres:15-alpine
+    container_name: slim-db
+    restart: always
+    environment:
+      POSTGRES_DB: cccat17
+      POSTGRES_USER: cccat17
+      POSTGRES_PASSWORD: slim_cccat17
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
